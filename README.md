@@ -13,6 +13,7 @@ For http:
 Once cloned, now change your directory:
 
 ```cd mse260_visualizer```
+
 ```cd src```
 
 Run setup.sh:
