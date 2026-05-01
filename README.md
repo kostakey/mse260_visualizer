@@ -2,11 +2,24 @@
 
 ## First Time Install
 
-This will take some time because it is mirroring the LAMMPS physics library
+For ssh:
+
+```git clone git@github.com:kostakey/mse260_visualizer.git```
+
+For http:
+
+```git clone https://github.com/kostakey/mse260_visualizer.git```
+
+Once cloned, now change your directory:
+
+```cd mse260_visualizer```
+```cd src```
 
 Run setup.sh:
 
 ```./setup.sh```
+
+This will take some time because it is mirroring the LAMMPS physics library
 
 This installs and builds all the project prerequisites in a Python virtual environment
 
