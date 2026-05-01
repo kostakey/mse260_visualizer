@@ -19,11 +19,30 @@ echo "=============================="
 echo "  Building LAMMPS"
 echo "=============================="
 
-# Go to LAMMPS source
-cd external/lammps
+LAMMPS_DIR="external/lammps"
 
-# clean build folder (safe rerun)
-mkdir -p build
+# Ensure external directory exists
+mkdir -p external
+
+# Clone LAMMPS if missing or broken
+if [ ! -d "$LAMMPS_DIR/.git" ] || [ ! -d "$LAMMPS_DIR/cmake" ]; then
+    echo "LAMMPS not found or incomplete. Cloning fresh copy..."
+
+    rm -rf "$LAMMPS_DIR"
+    git clone --depth 1 https://github.com/lammps/lammps.git "$LAMMPS_DIR"
+fi
+
+cd "$LAMMPS_DIR"
+
+# Safety check (prevents silent failures)
+if [ ! -d "cmake" ]; then
+    echo "ERROR: LAMMPS clone failed or is corrupted"
+    exit 1
+fi
+
+# Clean build (safe rerun)
+rm -rf build
+mkdir build
 cd build
 
 cmake ../cmake \

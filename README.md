@@ -12,6 +12,14 @@ This installs and builds all the project prerequisites in a Python virtual envir
 
 You should only need to do this once per fresh install, so proceed to the next steps!
 
+~~If things are failing, particularly with LAMMPS, run:~~
+
+~~```rm -rf src/external/lammps```~~
+
+~~Then:~~
+
+~~```git submodule update --init --recursive --progress```~~
+
 ## Running Python Environment
 
 Activate the Python virtual environment in the src/ folder:
